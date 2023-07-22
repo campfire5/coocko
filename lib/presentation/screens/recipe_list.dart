@@ -8,16 +8,16 @@ class RecipeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff172843),
+        backgroundColor: const Color(0xff172843),
         elevation: 0,
-        title: Text('Your recipes'),
+        title: const Text('Your recipes'),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        color: Color(0xff23344f),
+        color: const Color(0xff23344f),
         child: ListView.builder(
           itemBuilder: (context, index) {
-            return CoockoRecipeTile();
+            return const CoockoRecipeTile();
           },
           itemCount: 5,
         ),

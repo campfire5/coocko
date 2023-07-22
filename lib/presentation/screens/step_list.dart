@@ -8,7 +8,7 @@ class RecipeListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff172843),
+      backgroundColor: const Color(0xff172843),
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
@@ -22,7 +22,7 @@ class RecipeListScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            backgroundColor: Color(0xff23344f),
+            backgroundColor: const Color(0xff23344f),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(

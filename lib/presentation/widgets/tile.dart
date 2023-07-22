@@ -12,20 +12,18 @@ class CoockoStepTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomPaint(
-            size: Size(width * 0.4, 40),
-            painter: TileHeadShapePainter(color: backgroundColor),
-          ),
-          CustomPaint(
-            size: Size(width, 100),
-            painter: TileBodyShapePainter(color: backgroundColor),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomPaint(
+          size: Size(width * 0.4, 40),
+          painter: TileHeadShapePainter(color: backgroundColor),
+        ),
+        CustomPaint(
+          size: Size(width, 100),
+          painter: TileBodyShapePainter(color: backgroundColor),
+        ),
+      ],
     );
   }
 }
@@ -48,9 +46,9 @@ class TileBodyShapePainter extends CustomPainter {
     canvas.drawRRect(
       RRect.fromRectAndCorners(
         Rect.fromLTWH(0, 0, size.width, size.height),
-        topRight: Radius.circular(radius),
-        bottomLeft: Radius.circular(radius),
-        bottomRight: Radius.circular(radius),
+        topRight: const Radius.circular(radius),
+        bottomLeft: const Radius.circular(radius),
+        bottomRight: const Radius.circular(radius),
       ),
       paint,
     );

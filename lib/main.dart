@@ -1,4 +1,3 @@
-import 'package:coocko/presentation/screens/step_list.dart';
 import 'package:flutter/material.dart';
 
 import 'presentation/screens/recipe_list.dart';

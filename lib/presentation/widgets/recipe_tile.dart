@@ -7,7 +7,7 @@ class CoockoRecipeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath(
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         height: 150,
         width: 300,
         child: CustomPaint(
@@ -23,7 +23,7 @@ class RecipeShapePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final width = size.width;
     final height = size.height;
-    final curveHeight = 20.0;
+    const curveHeight = 20.0;
 
     final paint = Paint()..color = Colors.red;
 
@@ -52,8 +52,5 @@ class RecipeShapePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return true;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }

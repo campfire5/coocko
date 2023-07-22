@@ -16,7 +16,7 @@ class RecipeListScreen extends StatelessWidget {
             snap: false,
             floating: false,
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
+            flexibleSpace: const FlexibleSpaceBar(
               title: Text(
                 'Hey there',
                 style: TextStyle(color: Colors.white),
@@ -45,7 +45,7 @@ class RecipeListScreen extends StatelessWidget {
                     horizontal: 20,
                     vertical: 10,
                   ),
-                  child: CoockoTile(
+                  child: CoockoStepTile(
                     backgroundColor: recipe.color,
                   ),
                 );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CoockoTile extends StatelessWidget {
+class CoockoStepTile extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
-  const CoockoTile({
+  const CoockoStepTile({
     super.key,
     this.backgroundColor = Colors.black,
     this.foregroundColor = Colors.white,

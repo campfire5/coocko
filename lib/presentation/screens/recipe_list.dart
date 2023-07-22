@@ -7,17 +7,8 @@ class RecipeListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: CoockoTile(
-            backgroundColor: Color(0xffc6e9a6),
-          ),
-        ),
-      ),
-    );
     return Scaffold(
+      backgroundColor: Color(0xff172843),
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
@@ -26,15 +17,21 @@ class RecipeListScreen extends StatelessWidget {
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Hey there'),
+              title: Text(
+                'Hey there',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: Color(0xff23344f),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 20,
               child: Center(
-                child: Text('Scroll to see the SliverAppBar in effect.'),
+                child: Text(
+                  'Scroll to see the SliverAppBar in effect.',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),
@@ -43,7 +40,15 @@ class RecipeListScreen extends StatelessWidget {
               (context, index) {
                 final recipe = listRecipes[index];
 
-                return CoockoTile();
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  child: CoockoTile(
+                    backgroundColor: recipe.color,
+                  ),
+                );
               },
               childCount: listRecipes.length,
             ),

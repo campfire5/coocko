@@ -1,3 +1,5 @@
+import 'package:coocko/presentation/widgets/tile.dart';
+import 'package:coocko/test_data/test%20recipe.dart';
 import 'package:flutter/material.dart';
 
 class RecipeListScreen extends StatelessWidget {
@@ -5,6 +7,16 @@ class RecipeListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: CoockoTile(
+            backgroundColor: Color(0xc6e9a6),
+          ),
+        ),
+      ),
+    );
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -27,16 +39,15 @@ class RecipeListScreen extends StatelessWidget {
             ),
           ),
           SliverList(
-              delegate: SliverChildBuilderDelegate(
-            (context, index) => Container(
-              alignment: Alignment.center,
-              color: Colors.blue,
-              child: Text(
-                '$index',
-                style: TextStyle(color: Colors.white),
-              ),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final recipe = listRecipes[index];
+
+                return CoockoTile();
+              },
+              childCount: listRecipes.length,
             ),
-          ))
+          )
         ],
       ),
     );

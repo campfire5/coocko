@@ -11,15 +11,18 @@ class CoockoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: const Size(150, 45),
-      painter: CustomShapePainter(color: backgroundColor),
+    return Container(
+      color: Colors.red,
+      child: CustomPaint(
+        size: const Size(400, 80),
+        painter: TileHeadShapePainter(color: backgroundColor),
+      ),
     );
   }
 }
 
-class CustomShapePainter extends CustomPainter {
-  const CustomShapePainter({
+class TileHeadShapePainter extends CustomPainter {
+  const TileHeadShapePainter({
     required this.color,
   });
 
@@ -31,28 +34,45 @@ class CustomShapePainter extends CustomPainter {
       ..color = color
       ..style = PaintingStyle.fill;
 
-    final arcDimension = size.height / 3;
+    const arcDimension = 80.0;
+    const tiltValue = 10;
 
     final path = Path()
       ..moveTo(0, 0)
       ..lineTo(
-        size.width,
+        size.width - arcDimension,
         0,
+      )
+      ..quadraticBezierTo(
+        size.width - arcDimension / 2 - tiltValue,
+        0,
+        size.width - arcDimension / 2,
+        size.height / 2,
+      )
+      ..quadraticBezierTo(
+        size.width - arcDimension / 2 + tiltValue,
+        80,
+        size.width,
+        size.height,
       )
       ..lineTo(
         size.width,
         size.height,
       )
-      ..quadraticBezierTo(size.width, size.height - arcDimension,
-          size.width - arcDimension, size.height - arcDimension)
-      ..lineTo(2 * arcDimension, size.height - arcDimension)
-      ..quadraticBezierTo(arcDimension + 3, 30, arcDimension, arcDimension)
-      ..quadraticBezierTo(arcDimension - 3, 0, 0, 0)
+      ..lineTo(
+        0,
+        size.height,
+      )
+      ..quadraticBezierTo(
+        0,
+        0,
+        arcDimension / 2,
+        0,
+      )
       ..lineTo(
         0,
         0,
       );
-
     canvas.drawPath(path, paint);
   }
 
@@ -61,3 +81,47 @@ class CustomShapePainter extends CustomPainter {
     return true;
   }
 }
+
+// class CustomShapePainter extends CustomPainter {
+//   const CustomShapePainter({
+//     required this.color,
+//   });
+
+//   final Color color;
+
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     final paint = Paint()
+//       ..color = color
+//       ..style = PaintingStyle.fill;
+
+//     final arcDimension = size.height / 3;
+
+//     final path = Path()
+//       ..moveTo(0, 0)
+//       ..lineTo(
+//         size.width,
+//         0,
+//       )
+//       ..lineTo(
+//         size.width,
+//         size.height,
+//       )
+//       ..quadraticBezierTo(size.width, size.height - arcDimension,
+//           size.width - arcDimension, size.height - arcDimension)
+//       ..lineTo(2 * arcDimension, size.height - arcDimension)
+//       ..quadraticBezierTo(arcDimension + 3, 30, arcDimension, arcDimension)
+//       ..quadraticBezierTo(arcDimension - 3, 0, 0, 0)
+//       ..lineTo(
+//         0,
+//         0,
+//       );
+
+//     canvas.drawPath(path, paint);
+//   }
+
+//   @override
+//   bool shouldRepaint(CustomPainter oldDelegate) {
+//     return true;
+//   }
+// }

@@ -7,12 +7,12 @@ class RecipeListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20.0),
           child: CoockoTile(
-            backgroundColor: Color(0xc6e9a6),
+            backgroundColor: Color(0xffc6e9a6),
           ),
         ),
       ),
